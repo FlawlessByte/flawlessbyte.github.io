@@ -1,0 +1,145 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #000;
+    color: #00FF00;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Use min-height for better mobile support */
+}
+
+.container {
+    width: 90%; /* Increase width for better mobile view */
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #00FF00;
+    background-color: #222;
+    box-sizing: border-box; /* Ensure padding and border are included in the width/height */
+}
+
+header, nav, main, footer {
+    margin-bottom: 20px;
+}
+
+header h1 {
+    text-align: center;
+    padding-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #00FF00;
+    animation: typing 4s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
+    width: 0; /* Start width for the typewriter effect */
+    max-width: fit-content; /* Ensure the width matches the content */
+    margin: 0 auto; /* Center the text container */
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 22.5em; } /* Adjust this value based on the length of your text */
+}
+
+@keyframes blink-caret {
+    from, to { border-right-color: transparent; }
+    50% { border-right-color: #00FF00; }
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px; /* Reduce margin for better mobile view */
+}
+
+nav ul li a {
+    color: #00FF00;
+    text-decoration: none;
+    animation: fadeIn 2s ease-in-out;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+section {
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Slide up effect */
+    animation: fadeSlideUp 1s forwards; /* Animation applied */
+}
+
+section:nth-child(2) { animation-delay: 1s; } /* Delay for "About Me" */
+section:nth-child(3) { animation-delay: 1.5s; } /* Delay for "Experience" */
+section:nth-child(4) { animation-delay: 2s; } /* Delay for "Contact" */
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+footer p {
+    text-align: center;
+    border-top: 2px solid #00FF00;
+    padding-top: 10px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes colorChange {
+    0% { color: #00FF00; }
+    50% { color: #FF00FF; }
+    100% { color: #00FF00; }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.5em; /* Adjust font size for mobile */
+    }
+
+    nav ul li {
+        display: block; /* Stack nav items vertically on mobile */
+        margin: 10px 0;
+    }
+
+    section h2 {
+        font-size: 1.2em; /* Adjust section heading size for mobile */
+    }
+
+    footer p {
+        font-size: 0.8em; /* Adjust footer text size for mobile */
+    }
+}
